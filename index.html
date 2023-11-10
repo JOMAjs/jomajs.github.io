@@ -507,6 +507,43 @@
     </main>
 
     <script>
+        $(function () {
+
+    $(document).on("click", "#resume", function () {
+        console.log("hola como esta");
+        $.ajax({
+            url: "views/pages/resume.html",
+            success: function (dataResume) {
+                console.log("hola como esta ")
+                $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
+            }
+        });
+    })
+
+    $(document).on("click", "#inicio", function () {
+        softwareApp.setLoadData({
+            url: "views/pages/inicio.html",
+            success: function (dataInicio) {
+                $("#contenedor_cambiar_header").html(dataInicio);
+
+            }
+        });
+    })
+
+    $(document).on("click", "#portafolio", function () {
+        softwareApp.setLoadData({
+            url: "views/pages/portafolio.html",
+            success: function (dataPortafolio) {
+                $("#contenedor_cambiar_header").html(dataPortafolio);
+
+            },error: function (data)
+            {
+                
+            }
+        });
+    })
+
+})
         /*document.onkeydown = function(e) {
             if (e.ctrlKey &&
                 (e.keyCode === 85)) {
