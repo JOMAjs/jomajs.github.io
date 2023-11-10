@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +26,7 @@
 
     <script src="views/templates/js/bootstrap.bundle.min.js"></script>
     <script src="views/templates/js/template.js"></script>
+    <script src="views/templates/js/button.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100 bg-light">
@@ -513,42 +513,7 @@
     </main>
 
     <script>
-
-        $(function () {
-
-            $(document).on("click", "#resume", function () {
-                console.log("hola")
-                $.ajax({
-                    url: "views/pages/resume.html",
-                    success: function (dataResume) {
-                        $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
-                    }
-                });
-            })
-
-            $(document).on("click", "#inicio", function () {
-                $.ajax({
-                    url: "views/pages/inicio.html",
-                    success: function (dataInicio) {
-                        $("#contenedor_cambiar_header").html(dataInicio);
-
-                    }
-                });
-            })
-
-            $(document).on("click", "#portafolio", function () {
-                $.ajax({
-                    url: "views/pages/portafolio.html",
-                    success: function (dataPortafolio) {
-                        $("#contenedor_cambiar_header").html(dataPortafolio);
-
-                    }
-                });
-            })
-
-        })
-
-
+        
     </script>
 
 </body>
