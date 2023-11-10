@@ -515,7 +515,7 @@
         $(function () {
 
             $(document).on("click", "#resume", function () {
-                softwareApp.setLoadData({
+                $.ajax({
                     url: "views/pages/resume.html",
                     success: function (dataResume) {
                         $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
@@ -524,22 +524,20 @@
             })
 
             $(document).on("click", "#inicio", function () {
-                softwareApp.setLoadData({
+                $.ajax({
                     url: "views/pages/inicio.html",
                     success: function (dataInicio) {
-                        $("#contenedor_cambiar_header").html(dataInicio);
+                        $("#contenedor_cambiar_header").fadeIn(100).html(dataInicio);
 
                     }
                 });
             })
 
             $(document).on("click", "#portafolio", function () {
-                softwareApp.setLoadData({
+                $.ajax({
                     url: "views/pages/portafolio.html",
                     success: function (dataPortafolio) {
-                        $("#contenedor_cambiar_header").html(dataPortafolio);
-
-                    }, error: function (data) {
+                        $("#contenedor_cambiar_header").fadeIn(100).html(dataPortafolio);
 
                     }
                 });
