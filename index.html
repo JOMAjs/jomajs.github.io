@@ -1,12 +1,556 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Portafolio | Jeizon Arias</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="views/templates/fonts/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="views/templates/css/template.css" rel="stylesheet" />
+    <link href="views/templates/css/loader.css" rel="stylesheet" />
+
+    <!-- Core theme JS (includes Bootstrap)-->
+    <script src="views/templates/plugins/jquery/dist/jquery.min.js"></script>
+
+    <script src="views/templates/js/bootstrap.bundle.min.js"></script>
+    <script src="views/templates/js/template.js"></script>
 </head>
-<body>
-    <h1>hola</h1>
+
+<body class="d-flex flex-column h-100 bg-light">
+
+
+    <script>
+        CONTADOR = '';
+
+        function empezarContador() {
+            var tiempo = {
+                hora: 0,
+                minuto: 0,
+                segundo: 0
+            };
+
+            CONTADOR = null;
+
+            if (!$("#loader").is(':hidden')) {
+                $(this).text('Detener');
+                CONTADOR = setInterval(function () {
+                    // Segundos
+                    tiempo.segundo++;
+                    if (tiempo.segundo >= 60) {
+                        tiempo.segundo = 0;
+                        tiempo.minuto++;
+                    }
+
+                    // Minutos
+                    if (tiempo.minuto >= 60) {
+                        tiempo.minuto = 0;
+                        tiempo.hora++;
+                    }
+
+                    //$("#hour").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
+                    $("#minutos-contador").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+                    $("#segundos-contador").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+                }, 1000);
+            } else {
+                clearInterval(CONTADOR);
+            }
+        }
+    </script>
+
+    <div id="loader2" class='loader2' style="display: none;">
+        <div class='loader-container2'>
+            <img class="img-responsive" src="views/assets/loading.gif" style="margin: 0 auto;">
+        </div>
+    </div>
+
+    <div id="loader" class='loader' style="display: none;">
+        <div class='loader-container pt-10' style="min-height: 500px;">
+            <h3 class="fw-300" id="texto-contador-principal-pendiente">Procesando <span
+                    class="bg-primary text-white">solicitud!</span></h3>
+            <h3 class="fw-300 text-success" id="texto-contador-principal-finalizado" style="display: none;">Casi hemos
+                <span class="bg-success text-white"> terminado! </span>
+            </h3>
+            <div class="spinner-border text-primary m-1" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p class="mt-5" style="font-size: 14px; ">
+                Es posible que esta solicitud tarde un poco más de lo normal.
+            </p>
+            <h1 class="mb-2 text-primary" style="font-size: 50px;" data-tiempo="0" id="contador-espera">
+                <span id="minutos-contador">00</span>
+                <span id="minutos-contador">:</span>
+                <span id="segundos-contador">00</span>
+            </h1>
+            <h3><span class="badge badge-primary font-weight-normal" id="texto-contador">Tiempo transcurrido</span></h3>
+            <h2 class="h5 mt-5 fw-300 text-primary" id="texto-contador-auxiliar" style="display: none;">Organizando
+                <mark data-aos="highlight-text" data-aos-delay="250" class="aos-init fw-600 aos-animate"> información!
+                </mark>
+            </h2>
+        </div>
+    </div>
+
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#inicio" id="inicio"><span class="fw-bolder text-primary">Jeizon
+                        Arias</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#inicio" id="inicio">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#resume" id="resume">
+                                Resume
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portafolio" id="portafolio">
+                                Portafolio
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="contenedor_cambiar_header">
+            <!-- Header-->
+            <header class="py-5">
+                <div class="container px-5 pb-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-xxl-5">
+                            <!-- Header text content-->
+                            <div class="text-center text-xxl-start">
+                                <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                                    <div class="text-uppercase">Desarrollador &middot; PHP &middot; </div>
+                                </div>
+                                <div class="fs-3 fw-light text-muted">Te puedo ayudar con tu negocio</div>
+                                <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Jeizon Oskar
+                                        Moncada Arias</span></h1>
+                                <div
+                                    class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#resume"
+                                        id="resume">Resume</a>
+                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="#portafolio"
+                                        id="portafolio">Portafolio o Expriencia</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-7">
+                            <!-- Header profile picture-->
+                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                                <div class="profile bg-gradient-primary-to-secondary">
+                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
+                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
+                                    <img class="profile-img" src="views/assets/profile02.png" alt="..." />
+                                    <div class="dots-1">
+                                        <!-- SVG Dots-->
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                            xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path
+                                                    d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <!-- END of SVG dots-->
+                                    </div>
+                                    <div class="dots-2">
+                                        <!-- SVG Dots-->
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                            xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path
+                                                    d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <!-- END of SVG dots-->
+                                    </div>
+                                    <div class="dots-3">
+                                        <!-- SVG Dots-->
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                            xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path
+                                                    d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <!-- END of SVG dots-->
+                                    </div>
+                                    <div class="dots-4">
+                                        <!-- SVG Dots-->
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                            xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path
+                                                    d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z">
+                                                </path>
+                                                <path
+                                                    d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z">
+                                                </path>
+                                                <path
+                                                    d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                        <!-- END of SVG dots-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+
+
+            <!-- About Section-->
+            <section class="bg-light py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-xxl-8">
+                            <div class="text-center my-5">
+                                <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Acerca de Mi</span>
+                                </h2>
+                                <p class="lead fw-light mb-4"> Especialista Tecnologico. </p>
+                                <p class="text-muted">
+                                    Innovador proactivo con capacidad de desarrollar páginas web empresariales elegantes
+                                    y pioneras diseño
+                                    y proporcionando un proceso online coherente y fácil de utilizar para cliente,
+                                    compañero de trabajo.
+                                    También puedo instalar programas personalizado y dar soporte técnico a los sistemas
+                                    operativo realizando
+                                    tarea de mantenimiento. (preventivo – correctivo ), a los ordenadores de computo y
+                                    redes informáticas
+                                    el mundo
+                                </p>
+                                <div class="d-flex justify-content-center fs-2 gap-4">
+                                    <a class="text-gradient" target="_blank"
+                                        href="https://www.linkedin.com/in/jeizon-ariasa2324913b"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a class="text-gradient" target="_blank" href="https://github.com/JOMAjs"><i
+                                            class="bi bi-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto">
+                        <div class="small m-0">Creado por Jeizon Arias &copy; Website 2023</div>
+                    </div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacidad</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Desarrollador</a>
+                        <span class="mx-1">&middot;</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+
+        $(function () {
+
+            $(document).on("click", "#resume", function () {
+                console.log("hola")
+                $.ajax({
+                    url: "views/pages/resume.html",
+                    success: function (dataResume) {
+                        $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
+                    }
+                });
+            })
+
+            $(document).on("click", "#inicio", function () {
+                $.ajax({
+                    url: "views/pages/inicio.html",
+                    success: function (dataInicio) {
+                        $("#contenedor_cambiar_header").html(dataInicio);
+
+                    }
+                });
+            })
+
+            $(document).on("click", "#portafolio", function () {
+                $.ajax({
+                    url: "views/pages/portafolio.html",
+                    success: function (dataPortafolio) {
+                        $("#contenedor_cambiar_header").html(dataPortafolio);
+
+                    }
+                });
+            })
+
+        })
+
+
+    </script>
+
 </body>
+
 </html>
