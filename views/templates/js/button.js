@@ -26,9 +26,6 @@ $(function () {
             success: function (dataPortafolio) {
                 $("#contenedor_cambiar_header").html(dataPortafolio);
 
-            },error: function (data)
-            {
-                
             }
         });
     })
