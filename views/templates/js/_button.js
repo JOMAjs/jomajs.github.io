@@ -4,6 +4,7 @@ $(function () {
         softwareApp.setLoadData({
             url: "views/pages/resume.html",
             success: function (dataResume) {
+                console.log("hola como esta ")
                 $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
             }
         });
