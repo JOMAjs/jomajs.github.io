@@ -1,7 +1,8 @@
 $(function () {
 
     $(document).on("click", "#resume", function () {
-        softwareApp.setLoadData({
+        console.log("hola como esta");
+        $.ajax({
             url: "views/pages/resume.html",
             success: function (dataResume) {
                 console.log("hola como esta ")
