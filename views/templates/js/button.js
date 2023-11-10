@@ -2,10 +2,9 @@ $(function () {
 
     $(document).on("click", "#resume", function () {
         console.log("hola como esta");
-        $.ajax({
+        softwareApp.setLoadData({
             url: "views/pages/resume.html",
             success: function (dataResume) {
-                console.log("hola como esta ")
                 $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
             }
         });
