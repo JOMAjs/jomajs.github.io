@@ -21,11 +21,11 @@
     <link href="views/templates/css/template.css" rel="stylesheet" />
     <link href="views/templates/css/loader.css" rel="stylesheet" />
 
-    <!-- <script src="views/templates/js/_button.js"></script> Core theme JS (includes Bootstrap)-->
+    <!-- Core theme JS (includes Bootstrap)-->
     <script src="views/templates/plugins/jquery/dist/jquery.min.js"></script>
+
     <script src="views/templates/js/bootstrap.bundle.min.js"></script>
     <script src="views/templates/js/template.js"></script>
-    
 </head>
 
 <body class="d-flex flex-column h-100 bg-light">
@@ -80,7 +80,8 @@
             <h3 class="fw-300" id="texto-contador-principal-pendiente">Procesando <span
                     class="bg-primary text-white">solicitud!</span></h3>
             <h3 class="fw-300 text-success" id="texto-contador-principal-finalizado" style="display: none;">Casi hemos
-                <span class="bg-success text-white"> terminado! </span> </h3>
+                <span class="bg-success text-white"> terminado! </span>
+            </h3>
             <div class="spinner-border text-primary m-1" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -95,7 +96,8 @@
             <h3><span class="badge badge-primary font-weight-normal" id="texto-contador">Tiempo transcurrido</span></h3>
             <h2 class="h5 mt-5 fw-300 text-primary" id="texto-contador-auxiliar" style="display: none;">Organizando
                 <mark data-aos="highlight-text" data-aos-delay="250" class="aos-init fw-600 aos-animate"> información!
-                </mark> </h2>
+                </mark>
+            </h2>
         </div>
     </div>
 
@@ -477,8 +479,11 @@
                                     el mundo
                                 </p>
                                 <div class="d-flex justify-content-center fs-2 gap-4">
-                                    <a class="text-gradient" target="_blank" href="https://www.linkedin.com/in/jeizon-ariasa2324913b"><i class="bi bi-linkedin"></i></a>
-                                    <a class="text-gradient" target="_blank" href="https://github.com/JOMAjs"><i class="bi bi-github"></i></a>
+                                    <a class="text-gradient" target="_blank"
+                                        href="https://www.linkedin.com/in/jeizon-ariasa2324913b"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a class="text-gradient" target="_blank" href="https://github.com/JOMAjs"><i
+                                            class="bi bi-github"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -507,53 +512,42 @@
     </main>
 
     <script>
+
         $(function () {
 
-    $(document).on("click", "#resume", function () {
-        console.log("hola como esta");
-        $.ajax({
-            url: "views/pages/resume.html",
-            success: function (dataResume) {
-                console.log("hola como esta ")
-                $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
-            }
-        });
-    })
+            $(document).on("click", "#resume", function () {
+                console.log("hola")
+                $.ajax({
+                    url: "views/pages/resume.html",
+                    success: function (dataResume) {
+                        $("#contenedor_cambiar_header").fadeIn(100).html(dataResume);
+                    }
+                });
+            })
 
-    $(document).on("click", "#inicio", function () {
-        softwareApp.setLoadData({
-            url: "views/pages/inicio.html",
-            success: function (dataInicio) {
-                $("#contenedor_cambiar_header").html(dataInicio);
+            $(document).on("click", "#inicio", function () {
+                $.ajax({
+                    url: "views/pages/inicio.html",
+                    success: function (dataInicio) {
+                        $("#contenedor_cambiar_header").html(dataInicio);
 
-            }
-        });
-    })
+                    }
+                });
+            })
 
-    $(document).on("click", "#portafolio", function () {
-        softwareApp.setLoadData({
-            url: "views/pages/portafolio.html",
-            success: function (dataPortafolio) {
-                $("#contenedor_cambiar_header").html(dataPortafolio);
+            $(document).on("click", "#portafolio", function () {
+                $.ajax({
+                    url: "views/pages/portafolio.html",
+                    success: function (dataPortafolio) {
+                        $("#contenedor_cambiar_header").html(dataPortafolio);
 
-            },error: function (data)
-            {
-                
-            }
-        });
-    })
+                    }
+                });
+            })
 
-})
-        /*document.onkeydown = function(e) {
-            if (e.ctrlKey &&
-                (e.keyCode === 85)) {
-                return false;
-            }
-        };
+        })
 
-        document.oncontextmenu = function() {
-            return false;
-        }*/
+
     </script>
 
 </body>
