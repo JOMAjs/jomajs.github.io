@@ -20,6 +20,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="views/templates/css/template.css" rel="stylesheet" />
     <link href="views/templates/css/loader.css" rel="stylesheet" />
+    <link href="views/templates/css/redesociales.css" rel="stylesheet">
 
     <!-- Core theme JS (includes Bootstrap)-->
     <script src="views/templates/plugins/jquery/dist/jquery.min.js"></script>
@@ -106,7 +107,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
             <div class="container px-5">
-                <a class="navbar-brand" href="#inicio" id="inicio"><span class="fw-bolder text-primary">Jeizon
+                <a class="navbar-brand" href="./" id="inicio"><span class="fw-bolder text-primary">Jeizon
                         Arias</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -115,21 +116,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#inicio" id="inicio">
+                            <a class="nav-link" href="./" id="inicio">
                                 Inicio
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#resume" id="resume">
-                                Resume
+                            <a class="nav-link" id="resume">
+                                Resume  
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#portafolio" id="portafolio">
+                            <a class="nav-link" id="portafolio">
                                 Portafolio
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contacteme</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contacteme">
+                                Contacteme
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -151,9 +156,9 @@
                                         Moncada Arias</span></h1>
                                 <div
                                     class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#resume"
+                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" 
                                         id="resume">Resume</a>
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="#portafolio"
+                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" 
                                         id="portafolio">Portafolio o Expriencia</a>
                                 </div>
                             </div>
@@ -455,10 +460,6 @@
                     </div>
                 </div>
             </header>
-
-
-
-
             <!-- About Section-->
             <section class="bg-light py-5">
                 <div class="container px-5">
@@ -483,7 +484,7 @@
                                     <a class="text-gradient" target="_blank"
                                         href="https://www.linkedin.com/in/jeizon-arias-a2324913b"><i
                                             class="bi bi-linkedin"></i></a>
-                                    <a class="text-gradient"  target="_blank" href="https://github.com/JOMAjs"><i
+                                    <a class="text-gradient" target="_blank" href="https://github.com/JOMAjs"><i
                                             class="bi bi-github"></i></a>
                                 </div>
                             </div>
@@ -492,6 +493,16 @@
                 </div>
             </section>
         </div>
+
+        <!-- Call to action section-->
+        <section class="py-5 bg-gradient-primary-to-secondary text-white">
+            <div class="container px-5 my-5">
+                <div class="text-center">
+                    <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
@@ -512,53 +523,6 @@
 
     </main>
 
-    <script>
-        $(function () {
-
-            $(document).on("click", "#resume", function () {
-                $.ajax({
-                    url: "views/pages/resume.html",
-                    success: function (dataResume) {
-                        $("#contenedor_cambiar_header").html(dataResume);
-                        $("#loader2").css("display", "block").slideUp(1500);
-                    }
-                });
-            })
-
-            $(document).on("click", "#inicio", function () {
-                $.ajax({
-                    url: "views/pages/inicio.html",
-                    success: function (dataInicio) {
-                        $("#contenedor_cambiar_header").html(dataInicio);
-                        $("#loader2").css("display", "block").slideUp(1500);
-                    }
-                });
-            })
-
-            $(document).on("click", "#portafolio", function () {
-                $.ajax({
-                    url: "views/pages/portafolio.html",
-                    success: function (dataPortafolio) {
-                        $("#contenedor_cambiar_header").html(dataPortafolio);
-                        $("#loader2").css("display", "block").slideUp(1500);
-
-                    }
-                });
-            });
-
-            document.onkeydown = function (e) {
-                if (e.ctrlKey &&
-                    (e.keyCode === 85)) {
-                    return false;
-                }
-            };
-
-            document.oncontextmenu = function () {
-                return false;
-            }
-
-        })
-    </script>
 
 </body>
 
