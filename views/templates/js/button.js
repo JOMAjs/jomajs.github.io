@@ -43,7 +43,7 @@ $(function () {
     })
 
     // bloquear administrador de desarrollador
-        document.onkeydown = function(e) {
+        /*document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 85)) {
                 return false;
             }
@@ -75,7 +75,7 @@ $(function () {
              if (end - start > 100) {
                  window.location.href = "error";
              }
-         }, 1000);
+         }, 1000);*/
 
 
 })
